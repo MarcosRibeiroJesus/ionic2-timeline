@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform, Injectable } from '@angular/core';
+import { Pipe, Injectable } from '@angular/core';
 import { DomSanitizer } from "@angular/platform-browser";
 /**
  * Generated class for the Youtube pipe.

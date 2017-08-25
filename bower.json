@@ -1,0 +1,17 @@
+{
+  "name": "ionic2-timeline",
+  "description": "PapaiApp: Projeto incial do que seria a rede social exclusiva.",
+  "main": "",
+  "authors": [
+    "Marcos Ribeiro"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "platform.js": "platform#^1.3.4"
+  },
+  "devDependencies": {
+    "platform.js": "platform#^1.3.4"
+  }
+}
