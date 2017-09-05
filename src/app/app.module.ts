@@ -5,32 +5,45 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { Login } from '../pages/login/login';
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
+import { FotosEventoPage } from "../pages/fotos-evento/fotos-evento";
+import { MapaPage } from "../pages/mapa/mapa";
 
 import { Youtube } from '../pipes/youtube';
-import firebase from 'firebase';
+
 
 //ativa o map para realizar as requisições assíncronas, pega a resposta do http e transforma em Json 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { UsuarioService } from "../domain/usuario/usario-service";
 import { HttpModule } from '@angular/http';
+import { AuthProvider } from '../providers/auth';
+import { EventProvider } from '../providers/event';
+import { ProfileProvider } from '../providers/profile';
 
-firebase.initializeApp({
-    apiKey: "AIzaSyBVzzNIKf9KEl0US9yfJI5FXPUNlZEYsbI",
-    authDomain: "papaiapp-36bec.firebaseapp.com",
-    databaseURL: "https://papaiapp-36bec.firebaseio.com",
-    projectId: "papaiapp-36bec",
-    storageBucket: "papaiapp-36bec.appspot.com",
-    messagingSenderId: "673077935413"
-  });
+import { Camera } from '@ionic-native/camera';
+
+
+
+  class CameraMock extends Camera {
+  getPicture(options){
+    return new Promise( (resolve, reject) => {
+      resolve(`TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1
+      bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgY
+      SBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb2
+      4gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4=`);
+    });
+  }
+}
 
 @NgModule({
   declarations: [
     MyApp,
-    Login,
+    LoginPage,
     HomePage,
+    FotosEventoPage,
+    MapaPage,
     Youtube
   ],
   imports: [
@@ -41,14 +54,21 @@ firebase.initializeApp({
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    Login,
-    HomePage
+    LoginPage,
+    HomePage,
+    FotosEventoPage,
+    MapaPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UsuarioService
+    {provide: Camera, useClass: CameraMock},
+    UsuarioService,
+    AuthProvider,
+    EventProvider,
+    ProfileProvider
+    //Camera
   ]
 })
 export class AppModule {}

@@ -1,17 +1,18 @@
 <ion-header no-border>
   <ion-navbar color="secondary">
-    <ion-buttons left>
-        <button ion-button icon-only color="light"><ion-icon name="arrow-back"></ion-icon></button>
-    </ion-buttons>
+    
+        <button ion-button menuToggle color="light">
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    
       <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
  
 <ion-content fullscreen>
  
-    <ion-segment>
-        <ion-segment-button>
-                Gear
+     <ion-segment>
+        <ion-segment-button value="fotos">
         </ion-segment-button>
     </ion-segment>
 
@@ -27,23 +28,8 @@
           <ion-card-content>
             {{card.texto}}
           </ion-card-content>
-    </ion-card>
 
-    <ion-card *ngFor="let video of videos">
-      <ion-item>
-        <ion-avatar item-left>
-          <img [src]="video.avatar" />
-        </ion-avatar>
-        <h2>{{video.nome}}</h2>
-        <p>{{video.titulo}}</p>
-      </ion-item>
-    <ion-card-content>
-    <iframe width="100%" height="315" [src]="video.video | youtube" frameborder="0" allowfullscreen="true"></iframe>
-    </ion-card-content>
-    </ion-card>
-  
-
-      <!-- <ion-row>
+      <ion-row>
         <ion-col>
           <button ion-button icon-left clear small>
             <ion-icon name="thumbs-up"></ion-icon>
@@ -61,7 +47,43 @@
             11h atrás
           </ion-note>
         </ion-col>
-      </ion-row> -->
+      </ion-row>
+
+    </ion-card>
+
+    <ion-card *ngFor="let video of videos">
+      <ion-item>
+        <ion-avatar item-left>
+          <img [src]="video.avatar" />
+        </ion-avatar>
+        <h2>{{video.nome}}</h2>
+        <p>{{video.titulo}}</p>
+      </ion-item>
+    <ion-card-content>
+    <iframe width="100%" height="315" [src]="video.video | youtube" frameborder="0" allowfullscreen="true"></iframe>
+    </ion-card-content>
+    </ion-card>
+  
+
+       <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>12 Curtidas</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="text"></ion-icon>
+            <div>4 Comentários</div>
+          </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            11h atrás
+          </ion-note>
+        </ion-col>
+      </ion-row> 
  
     
  

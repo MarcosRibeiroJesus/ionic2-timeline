@@ -3,12 +3,12 @@
     <name>PapaiApp</name>
     <description>O App em homenagem ao Papai.</description>
     <author email="mrj84@outlook.com" href="http://marcosribeiro.96.lt">Marcos Ribeiro</author>
-        <universal-links>
-            <host name="https://guqx2.app.goo.gl/" scheme="https" />
-            <host name="papaiapp-36bec.firebaseapp.com" scheme="https">
-            <path url="/__/auth/callback"/>
-            </host>
-        </universal-links>
+    <universal-links>
+        <host name="https://guqx2.app.goo.gl/" scheme="https" />
+        <host name="papaiapp-36bec.firebaseapp.com" scheme="https">
+            <path url="/__/auth/callback" />
+        </host>
+    </universal-links>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -97,4 +97,8 @@
     <plugin name="cordova-universal-links-plugin" spec="~1.2.1" />
     <plugin name="cordova-plugin-browsertab" spec="~0.2.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.7.1" />
+    <plugin name="cordova-plugin-camera" spec="~2.4.1">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+    </plugin>
 </widget>
