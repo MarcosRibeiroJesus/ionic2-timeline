@@ -9,6 +9,9 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { FotosEventoPage } from "../pages/fotos-evento/fotos-evento";
 import { MapaPage } from "../pages/mapa/mapa";
+import { EventoPage } from "../pages/evento/evento";
+import { ListaEventosPage } from "../pages/lista-eventos/lista-eventos";
+import { NovoEventoPage } from "../pages/novo-evento/novo-evento";
 
 import { Youtube } from '../pipes/youtube';
 
@@ -19,7 +22,7 @@ import 'rxjs/add/operator/toPromise';
 import { UsuarioService } from "../domain/usuario/usario-service";
 import { HttpModule } from '@angular/http';
 import { AuthProvider } from '../providers/auth';
-import { EventProvider } from '../providers/event';
+import { EventoProvider } from '../providers/event';
 import { ProfileProvider } from '../providers/profile';
 
 import { Camera } from '@ionic-native/camera';
@@ -44,6 +47,9 @@ import { Camera } from '@ionic-native/camera';
     HomePage,
     FotosEventoPage,
     MapaPage,
+    EventoPage,
+    NovoEventoPage,
+    ListaEventosPage,
     Youtube
   ],
   imports: [
@@ -57,7 +63,10 @@ import { Camera } from '@ionic-native/camera';
     LoginPage,
     HomePage,
     FotosEventoPage,
-    MapaPage
+    MapaPage,
+    EventoPage,
+    NovoEventoPage,
+    ListaEventosPage
   ],
   providers: [
     StatusBar,
@@ -66,7 +75,7 @@ import { Camera } from '@ionic-native/camera';
     {provide: Camera, useClass: CameraMock},
     UsuarioService,
     AuthProvider,
-    EventProvider,
+    EventoProvider,
     ProfileProvider
     //Camera
   ]

@@ -26,7 +26,7 @@ export class ResetPasswordPage {
       const email:string = this.resetPasswordForm.value.email;
       this.authProvider.resetPassword(email).then( user => {
         const alert:Alert = this.alertCtrl.create({
-          message: "Check your email for a password reset link",
+          message: "Verifique em seu e-mail o link para a nova senha.",
           buttons: [{
             text: "Ok",
             role: 'cancel',

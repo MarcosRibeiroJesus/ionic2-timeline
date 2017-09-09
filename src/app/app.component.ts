@@ -9,6 +9,9 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from "../pages/home/home";
 
 import firebase from 'firebase';
+import { EventoPage } from '../pages/evento/evento';
+import { NovoEventoPage } from '../pages/novo-evento/novo-evento';
+import { ListaEventosPage } from '../pages/lista-eventos/lista-eventos';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,6 +21,8 @@ export class MyApp {
   rootPage:any;
   
   public paginas = [
+    { titulo: 'Criar Evento', componente: EventoPage },
+    { titulo: 'Listar Eventos', componente: ListaEventosPage },
     { titulo: 'Fotos do Evento', componente: FotosEventoPage },
     { titulo: 'Mapa', componente: MapaPage }
   ]
