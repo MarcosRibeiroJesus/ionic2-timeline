@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, Alert, AlertController } from 'ionic-angular';
 import { ProfileProvider } from '../../providers/profile';
 import { AuthProvider } from '../../providers/auth';
+import { LoginPage } from '../login/login';
+
+import 'firebase/database';
 
 @IonicPage()
 @Component({
@@ -24,7 +27,7 @@ export class PerfilPage {
 
   logOut():void {
     this.authProvider.logoutUser().then( () => {
-      this.navCtrl.setRoot('LoginPage');
+      this.navCtrl.setRoot(LoginPage);
     });
   }
 

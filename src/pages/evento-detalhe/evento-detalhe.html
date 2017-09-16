@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title><ion-icon name="wine"></ion-icon> {{eventoAtual?.nome}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row padding>
+    <ion-col col-8>
+      Receita Atual
+    </ion-col>
+    <ion-col col-4 [class.profitable]="eventoAtual?.receita > 0"
+      [class.no-profit]="eventoAtual?.receita < 0">
+      {{eventoAtual?.receita | number: '4.2'}}
+    </ion-col>
+  </ion-row>
+  <ion-card>
+    <ion-card-header>
+      {{eventoAtual?.nome}}
+    </ion-card-header>
+    <ion-card-content>
+      <p>Ingresso: <strong>${{eventoAtual?.preco | number: '2.2'}}</strong></p>
+      <p>Data: <strong>{{eventoAtual?.data}}</strong></p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="add-guest-form">
+    <ion-card-header>
+      Adicionar Convidados
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-8>
+            <ion-item>
+              <ion-label stacked>Nome</ion-label>
+              <ion-input [(ngModel)]="convidadoNome" type="text"
+                placeholder="Qual o nome do seu convidado?"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col col-4>
+          <button ion-button icon-only (click)="tirarFoto()">
+            <ion-icon name="camera"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+      <span *ngIf="convidadoFoto">Foto Adicionada!</span>
+
+      <button ion-button color="primary" block (click)="addConvidado(convidadoNome)"
+        [disabled]="!convidadoNome">
+        Adicionar Convidado
+      </button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

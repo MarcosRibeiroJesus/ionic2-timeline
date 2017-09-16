@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import firebase from 'firebase';
 
@@ -19,7 +18,7 @@ export class EventoProvider {
     return this.eventoListRef;
   }
 
-  getEventDetail(eventoId:string):firebase.database.Reference {
+  getEventoDetalhe(eventoId:string):firebase.database.Reference {
     return this.eventoListRef.child(eventoId);
   }
 
@@ -30,10 +29,10 @@ export class EventoProvider {
     eventoCusto:number): firebase.Promise<any> {
     return this.eventoListRef.push({
       nome: eventoNome,
-      date: eventoData,
-      price: eventoPreco * 1,
-      cost: eventoCusto * 1,
-      revenue: eventoCusto * -1
+      data: eventoData,
+      preco: eventoPreco * 1,
+      custo: eventoCusto * 1,
+      receita: eventoCusto * -1
     });
   }
 
@@ -49,7 +48,7 @@ export class EventoProvider {
         this.eventoListRef
         .child(eventoId)
         .transaction( evento => {
-          evento.revenue += eventoPreco;
+          evento.receita += eventoPreco;
           return evento;
         });
         if(convidadoFoto != null){
@@ -58,8 +57,8 @@ export class EventoProvider {
            .putString(convidadoFoto, 'base64', {contentType: 'image/png'})
             .then( savedPicture => {
               this.eventoListRef
-              .child(`${eventoId}/guestList/${newConvidado.key}/profilePicture`)
-              .set(savedPicture.downloadURL);
+              .child(`${eventoId}/convidadoList/${newConvidado.key}/profilePicture`)
+              .set(savedPicture.downloadURL); 
             });
         }
       });

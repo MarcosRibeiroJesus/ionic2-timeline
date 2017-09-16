@@ -1,18 +1,46 @@
-<!--
-  Generated template for the ListaEventos page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>ListaEventos</ion-title>
+    <ion-title>Lista de Eventos</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
+
+  <ion-card *ngFor="let evento of eventoList" (click)="goToEventoDetalhe(evento.id)">
+    
+    <ion-item>
+     <ion-avatar item-left><img /></ion-avatar>
+     <h2>{{evento?.nome}}</h2>  
+    </ion-item>
+
+     <img />
+
+      <ion-card-content>
+        <p>Ingresso: <strong>$ {{evento?.preco | number:'2.2'}}</strong></p>
+        <p>Date: <strong>{{evento?.data | date: 'dd/MM/yyyy'}}</strong></p>
+      </ion-card-content>
+
+   <!-- <ion-row>
+     <ion-col>
+       <button ion-button icon-left clear small>
+         <ion-icon name="thumbs-up"></ion-icon>
+         <div>12 Curtidas</div>
+       </button>
+     </ion-col>
+     <ion-col>
+       <button ion-button icon-left clear small>
+         <ion-icon name="text"></ion-icon>
+         <div>4 Comentários</div>
+       </button>
+     </ion-col>
+     <ion-col center text-center>
+       <ion-note>
+         11h atrás
+       </ion-note>
+     </ion-col>
+   </ion-row> -->
+
+ </ion-card>
+
 
 </ion-content>

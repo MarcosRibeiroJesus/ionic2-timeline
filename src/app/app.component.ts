@@ -9,9 +9,9 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from "../pages/home/home";
 
 import firebase from 'firebase';
-import { EventoPage } from '../pages/evento/evento';
-import { NovoEventoPage } from '../pages/novo-evento/novo-evento';
+import { EventoNovoPage } from '../pages/evento-novo/evento-novo';
 import { ListaEventosPage } from '../pages/lista-eventos/lista-eventos';
+import { Fan } from "../pages/fan/fan";
 
 @Component({
   templateUrl: 'app.html'
@@ -21,10 +21,11 @@ export class MyApp {
   rootPage:any;
   
   public paginas = [
-    { titulo: 'Criar Evento', componente: EventoPage },
+    { titulo: 'Criar Evento', componente: EventoNovoPage },
     { titulo: 'Listar Eventos', componente: ListaEventosPage },
     { titulo: 'Fotos do Evento', componente: FotosEventoPage },
-    { titulo: 'Mapa', componente: MapaPage }
+    { titulo: 'Mapa', componente: MapaPage },
+    { titulo: 'Visite-nos', componente: Fan }
   ]
 
   @ViewChild(Nav) public nav: Nav;

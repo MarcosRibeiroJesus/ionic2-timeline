@@ -10,4 +10,4 @@ import { ListaEventosPage } from './lista-eventos';
     IonicPageModule.forChild(ListaEventosPage),
   ],
 })
-export class ListaEventosModule {}
+export class ListaEventosPageModule {}

@@ -9,9 +9,10 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { FotosEventoPage } from "../pages/fotos-evento/fotos-evento";
 import { MapaPage } from "../pages/mapa/mapa";
-import { EventoPage } from "../pages/evento/evento";
+import { EventoDetalhePage } from "../pages/evento-detalhe/evento-detalhe";
 import { ListaEventosPage } from "../pages/lista-eventos/lista-eventos";
-import { NovoEventoPage } from "../pages/novo-evento/novo-evento";
+import { EventoNovoPage } from "../pages/evento-novo/evento-novo";
+import { Fan } from "../pages/fan/fan";
 
 import { Youtube } from '../pipes/youtube';
 
@@ -47,9 +48,9 @@ import { Camera } from '@ionic-native/camera';
     HomePage,
     FotosEventoPage,
     MapaPage,
-    EventoPage,
-    NovoEventoPage,
+    EventoNovoPage,
     ListaEventosPage,
+    Fan,
     Youtube
   ],
   imports: [
@@ -64,9 +65,9 @@ import { Camera } from '@ionic-native/camera';
     HomePage,
     FotosEventoPage,
     MapaPage,
-    EventoPage,
-    NovoEventoPage,
-    ListaEventosPage
+    EventoNovoPage,
+    ListaEventosPage,
+    Fan
   ],
   providers: [
     StatusBar,
@@ -76,7 +77,7 @@ import { Camera } from '@ionic-native/camera';
     UsuarioService,
     AuthProvider,
     EventoProvider,
-    ProfileProvider
+    ProfileProvider,
     //Camera
   ]
 })
