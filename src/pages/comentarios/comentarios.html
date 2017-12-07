@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>
+      <ion-icon name="quote" style="zoom:1.5;"></ion-icon> Comentários</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content fullscreen>
+  <ion-item *ngIf="foto">
+    <img [src]="foto.src" />
+    
+  </ion-item>
+
+  <ion-item *ngIf="foto">
+    <p>{{foto.novoComentario}}</p>
+  </ion-item>
+</ion-content>
+
+<ion-footer>
+  <ion-item>
+    <ion-input type="text" placeholder="Seu comentário..." [(ngModel)]="novoComentario"></ion-input>
+    <button ion-button clear item-right (click)="send()">
+      <ion-icon name="quote" style="zoom:1.5;"></ion-icon>
+    </button>
+  </ion-item>
+</ion-footer>

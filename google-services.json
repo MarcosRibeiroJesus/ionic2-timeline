@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "673077935413",
+    "firebase_url": "https://papaiapp-36bec.firebaseio.com",
+    "project_id": "papaiapp-36bec",
+    "storage_bucket": "papaiapp-36bec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673077935413:android:3ebe52ce91f9da24",
+        "android_client_info": {
+          "package_name": "com.ionicframework.ionic2cardlayout303418"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673077935413-81ebppm7j08g8i09shojq7o6f4r652pe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6yNvEV0rQFxlTs5U_PuvaJ9-hnELD2wM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673077935413-81ebppm7j08g8i09shojq7o6f4r652pe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

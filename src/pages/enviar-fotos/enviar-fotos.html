@@ -1,0 +1,49 @@
+<!-- <ion-header>
+  <ion-navbar id="navbar" color="secondary">
+    <ion-title>
+      <ion-icon name="images" style="zoom:1.5;"></ion-icon> Enviar Fotos</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content fullscreen>
+  <ion-card id="card" *ngFor="let foto of fotos | async">
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/img/graduation2.png" />
+      </ion-avatar>
+      <h2>{{foto.nome}}</h2>
+    </ion-item>
+
+    <img [src]="foto.src" />
+
+    <ion-row>
+      <ion-col>
+        <button id="curtir" (click)="curtirFoto (foto.$key, foto.likes)" ion-button icon-left clear large>
+          <ion-icon name="heart" color="danger"></ion-icon>
+          <ion-badge item-right>{{foto.likes}}</ion-badge>
+        </button>
+      </ion-col>
+
+      <button (click)="deletarFoto(foto.$key)" ion-button icon-left clear large>
+        <ion-icon name="trash" color="dark"></ion-icon>
+      </button>
+
+      <ion-col>
+        <button id="comentario" (click)="mostrarFoto(foto)" ion-button icon-left clear large>
+          <ion-icon name="text"></ion-icon>
+          <ion-badge item-right></ion-badge>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col width-50 style="text-align: center">
+      <button id="foto" ion-button round icon-only primary large (click)="tirarFoto()">
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ionicframework.ionic2cardlayout303418" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>PapaiApp</name>
-    <description>O App em homenagem ao Papai.</description>
+    <name>Aplicativo de Recordações</name>
+    <description>Ap desenvolvido para o TCC.</description>
     <author email="mrj84@outlook.com" href="http://marcosribeiro.96.lt">Marcos Ribeiro</author>
     <universal-links>
         <host name="https://guqx2.app.goo.gl/" scheme="https" />
@@ -18,7 +18,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <allow-navigation href="*://*.facebook.com/*"/>
+    <allow-navigation href="*://*.facebook.com/*" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
@@ -84,22 +84,42 @@
         <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
     </platform>
-    <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
-    <plugin name="cordova-plugin-whitelist" spec="1.3.1" />
-    <plugin name="cordova-plugin-console" spec="1.0.5" />
-    <plugin name="cordova-plugin-statusbar" spec="2.2.2" />
-    <plugin name="cordova-plugin-device" spec="1.1.4" />
-    <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
-    <plugin name="cordova-plugin-facebook4" spec="~1.9.1">
+    <allow-navigation href="http://192.168.15.18:8100" />
+    <platform name="android">
+        <resource-file src="google-services.json" target="app/google-services.json" />
+    </platform>
+    <engine name="android" spec="6.3.0" />
+    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
+    <plugin name="cordova-plugin-console" spec="^1.0.5" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.2.2" />
+    <plugin name="cordova-plugin-device" spec="^1.1.4" />
+    <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
+    <plugin name="cordova-plugin-facebook4" spec="^1.9.1">
         <variable name="APP_ID" value="108716693154594" />
         <variable name="APP_NAME" value="PapaiApp" />
     </plugin>
-    <plugin name="cordova-plugin-buildinfo" spec="~1.1.0" />
-    <plugin name="cordova-universal-links-plugin" spec="~1.2.1" />
-    <plugin name="cordova-plugin-browsertab" spec="~0.2.0" />
-    <plugin name="cordova-plugin-inappbrowser" spec="~1.7.1" />
-    <plugin name="cordova-plugin-camera" spec="~2.4.1">
+    <plugin name="cordova-plugin-buildinfo" spec="^1.1.0" />
+    <plugin name="cordova-universal-links-plugin" spec="^1.2.1" />
+    <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^1.7.2" />
+    <plugin name="cordova-plugin-camera" spec="^2.4.1">
         <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-googleplus" spec="^5.1.1">
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.673077935413-vndmeafl5dserqb2j4b69e45hsnv1srs" />
+    </plugin>
+    <plugin name="phonegap-plugin-push" spec="~2.1.2">
+        <variable name="FCM_VERSION" value="11.0.1" />
+        <variable name="SENDER_ID" value="673077935413" />
+    </plugin>
+    <plugin name="cordova-plugin-network-information" spec="~1.3.4" />
+    <plugin name="cordova-plugin-crosswalk-webview" spec="~2.3.0">
+        <variable name="XWALK_VERSION" value="23+" />
+        <variable name="XWALK_LITEVERSION" value="xwalk_core_library_canary:17+" />
+        <variable name="XWALK_COMMANDLINE" value="--disable-pull-to-refresh-effect" />
+        <variable name="XWALK_MODE" value="embedded" />
+        <variable name="XWALK_MULTIPLEAPK" value="true" />
     </plugin>
 </widget>

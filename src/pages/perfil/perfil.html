@@ -1,20 +1,30 @@
 <ion-header>
-  <ion-navbar color="primary">
-      
-    <ion-title><ion-icon name="person"></ion-icon> Perfil</ion-title>
+  <!-- <ion-navbar color="secondary"> -->
+    <!-- <ion-title>
+      <ion-icon name="person" style="zoom:1.5;"></ion-icon> Perfil</ion-title> -->
     <ion-buttons end>
-      <button ion-button icon-only (click)="logOut()">
+      <button ion-button icon-only id="logout" (click)="logOut()">
         <ion-icon name="log-out"></ion-icon>
       </button>
     </ion-buttons>
-  </ion-navbar>
+  <!-- </ion-navbar> -->
 </ion-header>
-
+ 
 <ion-content padding>
   <ion-list>
     <ion-list-header>
       Informações Pessoais
     </ion-list-header>
+
+    <ion-item>
+      <ion-avatar class="avatar" style="zoom:2.5;">
+        <img src="assets/img/graduation2.png" />
+      </ion-avatar>
+   
+      
+        <!-- <ion-icon name="add-circle" item-right style="zoom:1.2;" color="danger"></ion-icon> -->
+      
+    </ion-item>
 
     <ion-item (click)="updateName()">
       <ion-grid>
@@ -22,8 +32,8 @@
           <ion-col col-6>
             Nome
           </ion-col>
-          <ion-col col-6 *ngIf="userProfile?.firstName || userProfile?.lastName">
-            {{userProfile?.firstName}} {{userProfile?.lastName}}
+          <ion-col col-6 *ngIf="userProfile?.firstName">
+            {{userProfile?.firstName}} 
           </ion-col>
           <ion-col col-6 class="placeholder-profile" *ngIf="!userProfile?.firstName">
             <span>
@@ -36,8 +46,7 @@
 
     <ion-item>
       <ion-label class="dob-label">Data de Aniversário</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY"
-        [(ngModel)]="birthDate" (ionChange)="updateDOB(birthDate)"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" [(ngModel)]="birthDate" (ionChange)="updateDOB(birthDate)"></ion-datetime>
     </ion-item>
 
     <ion-item (click)="updateEmail()">
@@ -74,4 +83,4 @@
     </ion-item>
   </ion-list>
 
-</ion-content>  
+</ion-content>

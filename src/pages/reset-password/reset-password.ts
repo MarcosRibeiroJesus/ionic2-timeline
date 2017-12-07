@@ -21,7 +21,7 @@ export class ResetPasswordPage {
 
   resetPassword():void {
     if (!this.resetPasswordForm.valid){
-      console.log(`Form isn't valid yet, current value: ${this.resetPasswordForm.value}`);
+      console.log(`Formulário inválido, valor atual: ${this.resetPasswordForm.value}`);
     } else {
       const email:string = this.resetPasswordForm.value.email;
       this.authProvider.resetPassword(email).then( user => {
@@ -29,15 +29,15 @@ export class ResetPasswordPage {
           message: "Verifique em seu e-mail o link para a nova senha.",
           buttons: [{
             text: "Ok",
-            role: 'cancel',
+            role: 'Cancelar',
             handler: () => { this.navCtrl.pop() }
           }]
         });
         alert.present()
       }, error => {
         const errorAlert = this.alertCtrl.create({
-          message: error.message,
-          buttons: [{ text: "Ok", role: "cancel" }]
+          message: "Não há registro de usuário correspondente a este email. Por favor, verifique.",
+          buttons: [{ text: "Ok", role: "Cancelar" }]
         });
         errorAlert.present();
       });

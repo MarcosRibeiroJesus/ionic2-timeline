@@ -1,19 +1,15 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>login</ion-title>
-  </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-
-    <img src="assets/img/casa-stark.png">
+  <div class="center">
+    <img src="assets/img/graduation2.png">
+  </div>  
     <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
       <ion-item>
         <ion-label stacked>Email</ion-label>
-          <ion-input formControlName="email" type="email" placeholder="Seu endereço de email"
+          <ion-input formControlName="email" id="email" type="email" placeholder="Seu endereço de email"
             [class.invalid]="!loginForm.controls.email.valid && loginForm.controls.email.dirty">
           </ion-input>
     </ion-item>
@@ -23,8 +19,9 @@
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Password</ion-label>
-        <ion-input formControlName="password" type="password" placeholder="Sua senha" 
+      <ion-label stacked>Senha</ion-label> 
+        <ion-input formControlName="password"
+        id="password" type="password" placeholder="Sua senha" 
           [class.invalid]="!loginForm.controls.password.valid && 
             loginForm.controls.password.dirty"></ion-input>
     </ion-item>
@@ -33,18 +30,27 @@
       <p>Sua senha precisa ter 6 dígitos.</p>
     </ion-item>
 
-    <button ion-button block type="submit" [disabled]="!loginForm.valid">
-      Entrar
+    <button class="button" id="login" ion-button block type="submit" [disabled]="!loginForm.valid">
+      <ion-icon name="mail" style="text-align: left" style="zoom:1.3;"> Entrar</ion-icon>
     </button>
   </form>
 
-  <button ion-button block clear (click)="goToSignup()">
-    Criar uma nova conta
+  <button id="cadastro" ion-button block clear  (click)="goToSignup()">
+    <p>Criar uma nova conta</p>
   </button>
 
-  <button ion-button block clear (click)="goToResetPassword()">
-    Esqueci minha senha :(
-  </button>
+    <!-- <button ion-button block (click)="loginFacebook()">
+      <ion-icon name="logo-facebook" style="text-align: left" style="zoom:1.3;"> Facebook</ion-icon> 
+    </button>
+  
 
-    <button ion-button block (click)="login()">Login com Facebook</button>
+    <button ion-button block (click)="loginGoogle()" color="danger">
+      <ion-icon name="logo-google" style="text-align: left" style="zoom:1.3;"> Google</ion-icon> 
+    </button> -->
+ 
+
+    <button id="recuperar" ion-button block clear  (click)="goToResetPassword()">
+      Esqueci minha senha :(
+    </button>
+
 </ion-content>

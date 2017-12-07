@@ -9,5 +9,49 @@
 
 
 <ion-content padding>
+    <ion-card *ngFor="let foto of fotos" >
+        <ion-item>
+         <ion-avatar item-left>
+           <img [src]="foto.avatar" />
+         </ion-avatar>
+           <h2 *ngIf="userProfile?.firstName || userProfile?.lastName">{{userProfile?.firstName}} {{userProfile?.lastName}}</h2>
+               
+       </ion-item>
+         <img [src]="foto.foto" />
+           <ion-card-content>
+             {{foto.texto}}
+           </ion-card-content>
+ 
+       <ion-row>
+         <ion-col>
+           <button ion-button icon-left clear small>
+             <ion-icon name="thumbs-up"></ion-icon>
+             <div>12 Curtidas</div>
+           </button>
+         </ion-col>
+         <ion-col>
+           <button ion-button icon-left clear small>
+             <ion-icon name="text"></ion-icon>
+             <div>4 Comentários</div>
+           </button>
+         </ion-col>
+         <ion-col center text-center>
+           <ion-note>
+             11h atrás
+           </ion-note>
+         </ion-col>
+       </ion-row>
+ 
+     </ion-card>
 
 </ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col width-50 style="text-align: center">
+      <button ion-button round icon-only primary large (click)="tirarFoto()"> 
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

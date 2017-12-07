@@ -1,64 +1,66 @@
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
 import firebase from 'firebase';
 
 @Injectable()
-export class EventoProvider {
-  public eventoListRef:firebase.database.Reference;
+export class EventProvider {
+  public eventListRef: firebase.database.Reference;
 
   constructor() {
-    firebase.auth().onAuthStateChanged( user => {
-      if(user){
-        this.eventoListRef = firebase.database().ref(`/userProfile/${user.uid}/eventoList`);
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.eventListRef = firebase
+          .database()
+          .ref(`/userProfile/${user.uid}/eventList`);
       }
     });
   }
 
-  getEventoList():firebase.database.Reference {
-    return this.eventoListRef;
+  getEventList(): firebase.database.Reference {
+    return this.eventListRef;
   }
 
-  getEventoDetalhe(eventoId:string):firebase.database.Reference {
-    return this.eventoListRef.child(eventoId);
+  getEventDetail(eventId: string): firebase.database.Reference {
+    return this.eventListRef.child(eventId);
   }
 
   createEvent(
-    eventoNome:string, 
-    eventoData:string, 
-    eventoPreco:number, 
-    eventoCusto:number): firebase.Promise<any> {
-    return this.eventoListRef.push({
-      nome: eventoNome,
-      data: eventoData,
-      preco: eventoPreco * 1,
-      custo: eventoCusto * 1,
-      receita: eventoCusto * -1
+    eventName: string,
+    eventDate: string,
+    eventPrice: number,
+    eventCost: number
+  ): firebase.database.ThenableReference {
+    return this.eventListRef.push({
+      name: eventName,
+      date: eventDate,
+      price: eventPrice * 1,
+      cost: eventCost * 1,
+      revenue: eventCost * -1
     });
-  }
+  } 
 
-  addConvidado(
-    convidadoNome:string, 
-    eventoId:string, 
-    eventoPreco:number, 
-    convidadoFoto:string = null): firebase.Promise<any> {
-    return this.eventoListRef
-    .child(`${eventoId}/convidadoList`)
-    .push({ convidadoNome })
-    .then( newConvidado => {
-        this.eventoListRef
-        .child(eventoId)
-        .transaction( evento => {
-          evento.receita += eventoPreco;
-          return evento;
+  addGuest(
+    guestName: string,
+    eventId: string,
+    eventPrice: number,
+    guestPicture: string = null
+  ): PromiseLike<any> {
+    return this.eventListRef
+      .child(`${eventId}/guestList`)
+      .push({ guestName })
+      .then(newGuest => {
+        this.eventListRef.child(eventId).transaction(event => {
+          event.revenue += eventPrice;
+          return event;
         });
-        if(convidadoFoto != null){
-          firebase.storage()
-          .ref(`/convidadoProfile/${newConvidado.key}/profilePicture.png`)
-           .putString(convidadoFoto, 'base64', {contentType: 'image/png'})
-            .then( savedPicture => {
-              this.eventoListRef
-              .child(`${eventoId}/convidadoList/${newConvidado.key}/profilePicture`)
-              .set(savedPicture.downloadURL); 
+        if (guestPicture != null) {
+          firebase
+            .storage()
+            .ref(`/guestProfile/${newGuest.key}/profilePicture.png`)
+            .putString(guestPicture, 'base64', { contentType: 'image/png' })
+            .then(savedPicture => {
+              this.eventListRef
+                .child(`${eventId}/guestList/${newGuest.key}/profilePicture`)
+                .set(savedPicture.downloadURL);
             });
         }
       });
